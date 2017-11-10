@@ -1,0 +1,6 @@
+framework module MXList {
+  umbrella header "MXList-umbrella.h"
+
+  export *
+  module * { export * }
+}

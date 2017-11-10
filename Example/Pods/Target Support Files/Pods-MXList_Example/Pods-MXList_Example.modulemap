@@ -1,0 +1,6 @@
+framework module Pods_MXList_Example {
+  umbrella header "Pods-MXList_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,29 @@
+PODS:
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - MXList (0.1.0):
+    - MXList/controller (= 0.1.0)
+    - MXList/models (= 0.1.0)
+    - MXList/views (= 0.1.0)
+  - MXList/controller (0.1.0)
+  - MXList/models (0.1.0)
+  - MXList/views (0.1.0)
+
+DEPENDENCIES:
+  - FBSnapshotTestCase
+  - MXList (from `../`)
+
+EXTERNAL SOURCES:
+  MXList:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  MXList: 21adb16eb47c9bef8583e0764c21f9a23ba5e4a9
+
+PODFILE CHECKSUM: 6248f7d208e5a0c4468171ad2257692a511ac42b
+
+COCOAPODS: 1.0.1
