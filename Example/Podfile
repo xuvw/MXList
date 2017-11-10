@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MXList_Example' do
+  pod 'MXList', :path => '../'
+
+  target 'MXList_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase'
+  end
+end
