@@ -31,40 +31,41 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '7.0'
 
-  # s.source_files = 'MXList/Classes/**/*'
+  s.source_files = 'MXList/**/*'
 
-  s.subspec 'controller' do |ct|
+  # s.subspec 'controller' do |ct|
+  #   ct.dependency 'MXList/models'
+  #   ct.dependency 'MXList/views'
+  #   ct.source_files = 'MXList/controller/**/*.{h,m,m}'
+  #   ct.frameworks = 'UIKit','Foundation'
 
-    ct.source_files = 'MXList/controller/**/*.{h,m,m}'
-    ct.frameworks = 'UIKit','Foundation'
+  #   ct.xcconfig  = {
+  #   'OTHER_LINKER_FLAGS' => '-ObjC'
+  #   }
 
-    ct.xcconfig  = {
-    'OTHER_LINKER_FLAGS' => '-ObjC'
-    }
+  # end
 
-  end
+  # s.subspec 'models' do |md|
 
-  s.subspec 'models' do |md|
+  #   md.source_files = 'MXList/models/**/*.{h,m,m}'
+  #   md.frameworks = 'UIKit','Foundation'
 
-    md.source_files = 'MXList/models/**/*.{h,m,m}'
-    md.frameworks = 'UIKit','Foundation'
+  #   md.xcconfig  = {
+  #   'OTHER_LINKER_FLAGS' => '-ObjC'
+  #   }
 
-    md.xcconfig  = {
-    'OTHER_LINKER_FLAGS' => '-ObjC'
-    }
+  # end
 
-  end
+  # s.subspec 'views' do |vw|
+  #   vw.dependency 'MXList/models'
+  #   vw.source_files = 'MXList/views/**/*.{h,m,m}'
+  #   vw.frameworks = 'UIKit','Foundation'
 
-  s.subspec 'views' do |vw|
+  #   vw.xcconfig  = {
+  #   'OTHER_LINKER_FLAGS' => '-ObjC'
+  #   }
 
-    vw.source_files = 'MXList/views/**/*.{h,m,m}'
-    vw.frameworks = 'UIKit','Foundation'
-
-    vw.xcconfig  = {
-    'OTHER_LINKER_FLAGS' => '-ObjC'
-    }
-
-  end
+  # end
   
   # s.resource_bundles = {
   #   'MXList' => ['MXList/Assets/*.png']
