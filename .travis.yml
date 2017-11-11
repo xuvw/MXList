@@ -24,12 +24,6 @@ script:
 
     - echo Check if the library described by the podspec can be built
     - pod lib lint --allow-warnings
-
-    - echo Build as static library
-    - xcodebuild clean build -workspace MXList.xcworkspace -scheme 'MXList iOS static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
-
-    - echo Build the Demo apps
-    - xcodebuild clean build -workspace MXList.xcworkspace -scheme 'MXList iOS Demo' -configuration Debug -destination 'name=iPhone 6s' | xcpretty -c
     
 after_success:
     - bash <(curl -s https://codecov.io/bash)
