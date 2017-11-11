@@ -26,14 +26,10 @@ script:
     - pod lib lint --allow-warnings
 
     - echo Build as static library
-    - xcodebuild clean build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage iOS static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
-    - xcodebuild clean build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage watchOS static' -sdk watchsimulator -configuration Debug | xcpretty -c
+    - xcodebuild clean build -workspace MXList.xcworkspace -scheme 'MXList iOS static' -sdk iphonesimulator PLATFORM_NAME=iphonesimulator -configuration Debug | xcpretty -c
 
     - echo Build the Demo apps
-    - xcodebuild clean build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage OSX Demo' -sdk macosx -configuration Debug | xcpretty -c
-    - xcodebuild clean build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage iOS Demo' -configuration Debug -destination 'name=iPhone 6s' | xcpretty -c
-    - xcodebuild clean build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage TV Demo' -sdk appletvsimulator -configuration Debug | xcpretty -c
-    - xcodebuild clean build -workspace SDWebImage.xcworkspace -scheme 'SDWebImage Watch Demo' -configuration Debug -destination 'name=iPhone 6s' | xcpretty -c
-
+    - xcodebuild clean build -workspace MXList.xcworkspace -scheme 'MXList iOS Demo' -configuration Debug -destination 'name=iPhone 6s' | xcpretty -c
+    
 after_success:
     - bash <(curl -s https://codecov.io/bash)
