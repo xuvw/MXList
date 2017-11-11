@@ -89,20 +89,23 @@
 }
 
 - (CGSize)sizeWithContent:(NSObject *)contentData {
-    UIView *cv = [self.reuseController mx_viewWithContentData:contentData];
-    [cv fillData:contentData];
-    
     CGSize rsize = CGSizeZero;
-    if (cv.useFrameLayout) {
-        rsize = [cv sizeThatFits:CGSizeMake(windowRt.size.width, 0)];
-    }else {
-        NSLayoutConstraint *widthFenceConstraint = [NSLayoutConstraint constraintWithItem:cv attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:windowRt.size.width];
+    @autoreleasepool {
+        UIView *cv = [self.reuseController mx_viewWithContentData:contentData];
+        [cv fillData:contentData];
         
-        [cv addConstraint:widthFenceConstraint];
-        rsize = [cv systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        if (cv.useFrameLayout) {
+            rsize = [cv sizeThatFits:CGSizeMake(windowRt.size.width, 0)];
+        }else {
+            NSLayoutConstraint *widthFenceConstraint = [NSLayoutConstraint constraintWithItem:cv attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:windowRt.size.width];
+            
+            [cv addConstraint:widthFenceConstraint];
+            rsize = [cv systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        }
+        contentData.mxContentSize = rsize;
+        [self.reuseController mx_pushContentView:cv];
     }
-    contentData.mxContentSize = rsize;
-    [self.reuseController mx_pushContentView:cv];
+    
     return rsize;
 }
 
